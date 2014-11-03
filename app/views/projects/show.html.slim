@@ -51,6 +51,8 @@
           span.count=" (#{@posts_count})"
         = link_to '#contributions', 'id' => 'contributions_link', 'data-target' => '#project_contributions' do
           = t('.menu.contributions')
+        = link_to '#team', 'id' => 'team_link', 'data-target' => '#project_team' do
+          = t('.menu.team')
           span.count=" (#{@project.total_contributions})"
         = link_to '#comments', 'id' => 'comments_link', 'data-target' => '#project_comments' do
           = t('.menu.comments')
@@ -76,7 +78,7 @@
         #project_posts.content.hide[data-path=project_posts_path(project_id: @project.id)]
           - if policy(@project).update?
             = render template: 'projects/posts/new'
-          .results data-skiptab=""
+          .results &nbsp;
           .clearfix
           #posts-loading.loading= image_tag "loading.gif"
         #project_contributions.content.hide[data-path=project_contributions_path(project_id: @project.id)]
@@ -85,7 +87,7 @@
             = label_tag(:contribution_state, t('.contribution_states.confirmed'))
             = radio_button_tag(:contribution_state, "waiting_confirmation")
             = label_tag(:contribution_state, t('.contributions_states.pending'))
-          .results data-skiptab=""
+          .results &nbsp;
           .clearfix
           #contributions-loading.loading= image_tag "loading.gif"
         #project_comments.content.hide
@@ -136,7 +138,7 @@
               | #{@project.user.address_city}
         .user_social
           ul
-            - if @project.user.facebook_link.present?
+            - if @project.user.facebook_link
               li
                 = link_to "Perfil no facebook", @project.user.facebook_link, target: '_blank', class: 'facebook'
             - if @project.user.twitter_link

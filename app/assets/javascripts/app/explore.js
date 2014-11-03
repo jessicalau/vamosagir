@@ -32,16 +32,8 @@ App.addChild('Explore', _.extend({
   },
 
   selectLink: function(){
-    this.$('.follow-category').hide();
-
-    var link = this.$('a[href="' + window.location.hash + '"]')
     this.$('a.selected').removeClass('selected');
-
-    link.addClass('selected');
-
-    if(link.data('categoryid')) {
-      this.followCategory.setupFollowHeader(link);
-    }
+    this.$('a[href="' + window.location.hash + '"]').addClass('selected');
   },
 
   followRoute: function(route, name, params){
@@ -71,31 +63,5 @@ App.addChild('Explore', _.extend({
         not_expired: true
       };
     }
-  },
-
-}, Skull.InfiniteScroll));
-
-App.views.Explore.addChild('FollowCategory', {
-  el: '.follow-category',
-
-  setupFollowHeader: function(selectedItem) {
-    var unfollow_btn = this.$('.unfollow-btn');
-    var follow_btn = this.$('.follow-btn');
-
-    this.$('.button').hide();
-    this.$('.category-info h3').html(selectedItem.data('name'));
-    this.$('.category-follow span.count').html(selectedItem.data('totalfollowers'));
-
-    if(selectedItem.data('isfollowing')) {
-      unfollow_btn.prop('href', selectedItem.data('unfollowpath'))
-      unfollow_btn.show();
-    } else {
-      follow_btn.prop('href', selectedItem.data('followpath'))
-      follow_btn.show();
-    }
-
-    this.$el.show();
   }
-
-});
-
+}, Skull.InfiniteScroll));

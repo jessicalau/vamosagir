@@ -3,17 +3,13 @@ footer
     .large-3.columns
       h3.footer-title= t('footer.titles.contact')
       ul.footer-list
-        li= link_to t('footer.links.twitter'), "#{CatarseSettings[:twitter_url]}", target: '_blank'
-        li= link_to t('footer.links.facebook'), "#{CatarseSettings[:facebook_url]}", target: '_blank'
-        li= link_to t('footer.links.instagram'), "#{CatarseSettings[:instagram_url]}", target: '_blank'
-        li= link_to t('footer.links.github'), "#{CatarseSettings[:github_url]}", target: '_blank'
-        li= link_to t('footer.links.blog'), "#{CatarseSettings[:blog_url]}", target: '_blank'
-        li.zendesk_widget= link_to t('footer.links.contact'), "#{CatarseSettings[:zendesk_url]}/account/dropboxes/#{CatarseSettings[:zendesk_dropbox_id]}"
+        li= link_to t('.links.facebook'), "facebook.com/vamosagir", target: '_blank'
+ li= link_to t('.links.contact'), "mailto:contato@vamosafir.com", target: '_blank'
+
     .large-3.columns
       h3.footer-title= t('footer.titles.about')
       ul.footer-list
-        li= link_to t('footer.links.faq'), "#{CatarseSettings[:faq_url]}", target: '_blank'
-        li= link_to t('footer.links.feedback'), "#{CatarseSettings[:feedback_url]}", target: '_blank'
+        li= link_to t('.links.faq'), "mailto:suporte@vamosagir.com", target: '_blank'
         li= link_to t('footer.links.terms'), terms_of_use_path, target: '_blank'
         li= link_to t('footer.links.privacy'), privacy_policy_path, target: '_blank'
     .large-3.columns
@@ -31,14 +27,12 @@ footer
       .newsletter-footer
         = render 'layouts/newsletter'
       h3.footer-title= t('footer.titles.social')
-      .twitter-box
-        = link_to "Follow @#{CatarseSettings[:twitter_username]}", "http://twitter.com/#{CatarseSettings[:twitter_username]}", :class => 'twitter-follow-button', :"data-button"=>"blue", :"data-text-color" => "#ffffff", :"data-link-color"=>"#fffffff", :"data-width" => "224px"
-      .facebook-box
+            .facebook-box
         = render_facebook_like href: "", colorscheme: "dark", width: "171"
   .row
     hr/
   .row
-    p.copyleft= "#{t('footer.texts.copyleft')} Catarse, #{DateTime.now.year} | Open source #{link_to 'Catarse @ Github', "#{CatarseSettings[:github_url]}", :class => 'github', target: '_blank'}".html_safe
+     p.copyleft= "#{t('.texts.copyleft')} Vamos Agir, #{DateTime.now.year} | Open source #{link_to 'Catarse @ Github', "#{CatarseSettings[:github_url]}", :class => 'github', target: '_blank'}".html_safe
 footer.w-hidden-small.w-hidden-tiny.footer-simple
   .w-container
     .footer-signature-text.caption #{CatarseSettings[:comapny_name]} #{Time.now.strftime("%Y")}

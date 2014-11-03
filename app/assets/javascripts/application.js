@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require ./lib/jquery.js
-//= require ./lib/jquery.brbanks.js
 //= require jquery_ujs
 //= require ./lib/jquery-ui.js
 //= require best_in_place
